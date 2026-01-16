@@ -195,11 +195,83 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.lang-btn {
+  background: none;
+  border: 1px solid #e5e7eb;
+  padding: 0.25rem 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.lang-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
 .team-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
   </style>
+
+  <script>
+    const translations = {
+      de: {
+        "nav.team": "Dekanatsteam",
+        "nav.program": "Wahlprogramm",
+        "nav.documents": "Dokumente",
+        "nav.news": "News",
+  
+        "hero.title": "Unser Team für das Dekanat",
+        "hero.text": "Wir bewerben uns um das Dekanat der Medizinischen Fakultät der Universität Tübingen mit einem klaren Fokus auf Forschung, Lehre, Strukturentwicklung und Digitalisierung.",
+  
+        "team.title": "Dekanatsteam",
+        "program.title": "Wahlprogramm",
+        "documents.title": "Dokumente",
+        "news.title": "News"
+      },
+  
+      en: {
+        "nav.team": "Dean’s Team",
+        "nav.program": "Election Program",
+        "nav.documents": "Documents",
+        "nav.news": "News",
+  
+        "hero.title": "Our Team for the Dean’s Office",
+        "hero.text": "We are applying for the Dean’s Office of the Medical Faculty of the University of Tübingen with a clear focus on research, teaching, structural development, and digitalization.",
+  
+        "team.title": "Dean’s Team",
+        "program.title": "Election Program",
+        "documents.title": "Documents",
+        "news.title": "News"
+      }
+    };
+  
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      localStorage.setItem("lang", lang);
+  
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+  
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.id === "lang-" + lang);
+      });
+    }
+  
+    document.getElementById("lang-de").onclick = () => setLanguage("de");
+    document.getElementById("lang-en").onclick = () => setLanguage("en");
+  
+    // Initial language
+    const savedLang = localStorage.getItem("lang") || "de";
+    setLanguage(savedLang);
+  </script>
 </head>
 
 <body>
@@ -207,26 +279,31 @@
 <header>
   <nav>
     <strong>Dekanat Medizin Tübingen</strong>
-    <div>
-      <a href="#team">Dekanatsteam</a>
-      <a href="#programm">Wahlprogramm</a>
-      <a href="#dokumente">Dokumente</a>
-      <a href="#news">News</a>
+  
+    <div style="display:flex; align-items:center; gap:1.5rem;">
+      <a href="#team" data-i18n="nav.team">Dekanatsteam</a>
+      <a href="#programm" data-i18n="nav.program">Wahlprogramm</a>
+      <a href="#dokumente" data-i18n="nav.documents">Dokumente</a>
+      <a href="#news" data-i18n="nav.news">News</a>
+  
+      <!-- Language switcher -->
+      <button id="lang-de" class="lang-btn" aria-label="Deutsch">DE</button>
+      <button id="lang-en" class="lang-btn" aria-label="English">EN</button>
     </div>
   </nav>
 </header>
 
 <section class="hero">
-  <h1>Unser Team für das Dekanat</h1>
-  <p>
-    Wir bewerben uns um das Dekanat der Medizinischen Fakultät der Universität Tübingen
-    mit einem klaren Fokus auf Forschung, Lehre, Strukturentwicklung und Digitalisierung.
-  </p>
+  <h1 data-i18n="hero.title">Unser Team für das Dekanat</h1>
+<p data-i18n="hero.text">
+  Wir bewerben uns um das Dekanat der Medizinischen Fakultät der Universität Tübingen
+  mit einem klaren Fokus auf Forschung, Lehre, Strukturentwicklung und Digitalisierung.
+</p>
 </section>
 
 <section id="team">
   <div class="container">
-    <h2>Dekanatsteam</h2>
+    <h2 data-i18n="team.title">Dekanatsteam</h2>
 
     <div class="team-grid">
       <a href="docs/CV_Tabatabai.pdf" download class="team-card-link"><div class="team-card">
@@ -306,7 +383,7 @@
 
 <section id="programm" style="background: var(--secondary);">
   <div class="container">
-    <h2>Wahlprogramm</h2>
+  <h2 data-i18n="program.title">Wahlprogramm</h2>
     <ul>
       <li>Transparenz</li>
       <li>Haltung</li>
@@ -320,7 +397,7 @@
 
 <section id="dokumente">
   <div class="container documents">
-    <h2>Dokumente</h2>
+  <h2 data-i18n="documents.title">Dokumente</h2>
     <ul>
       <li><a href="#">Wahlprogramm (PDF)</a></li>
       <li><a href="docs/CV_all.pdf" target=_blank>Lebensläufe des Teams (PDF)</a></li>
@@ -331,7 +408,7 @@
 
 <section id="news" style="background: var(--secondary);">
   <div class="container">
-    <h2>News</h2>
+  <h2 data-i18n="news.title">News</h2>
 
     <div class="news-item">
       <small>20. Januar 2026</small>
