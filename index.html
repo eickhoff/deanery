@@ -215,63 +215,6 @@
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
   </style>
-
-  <script>
-    const translations = {
-      de: {
-        "nav.team": "Dekanatsteam",
-        "nav.program": "Wahlprogramm",
-        "nav.documents": "Dokumente",
-        "nav.news": "News",
-  
-        "hero.title": "Unser Team für das Dekanat",
-        "hero.text": "Wir bewerben uns um das Dekanat der Medizinischen Fakultät der Universität Tübingen mit einem klaren Fokus auf Forschung, Lehre, Strukturentwicklung und Digitalisierung.",
-  
-        "team.title": "Dekanatsteam",
-        "program.title": "Wahlprogramm",
-        "documents.title": "Dokumente",
-        "news.title": "News"
-      },
-  
-      en: {
-        "nav.team": "Dean’s Team",
-        "nav.program": "Election Program",
-        "nav.documents": "Documents",
-        "nav.news": "News",
-  
-        "hero.title": "Our Team for the Dean’s Office",
-        "hero.text": "We are applying for the Dean’s Office of the Medical Faculty of the University of Tübingen with a clear focus on research, teaching, structural development, and digitalization.",
-  
-        "team.title": "Dean’s Team",
-        "program.title": "Election Program",
-        "documents.title": "Documents",
-        "news.title": "News"
-      }
-    };
-  
-    function setLanguage(lang) {
-      document.documentElement.lang = lang;
-      localStorage.setItem("lang", lang);
-  
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (translations[lang][key]) {
-          el.textContent = translations[lang][key];
-        }
-      });
-  
-      document.querySelectorAll(".lang-btn").forEach(btn => {
-        btn.classList.toggle("active", btn.id === "lang-" + lang);
-      });
-    }
-  
-    document.getElementById("lang-de").onclick = () => setLanguage("de");
-    document.getElementById("lang-en").onclick = () => setLanguage("en");
-  
-    // Initial language
-    const savedLang = localStorage.getItem("lang") || "de";
-    setLanguage(savedLang);
-  </script>
 </head>
 
 <body>
@@ -428,5 +371,61 @@
   © Universität Tübingen – Medizinische Fakultät
 </footer>
 
+<script>
+    const translations = {
+      de: {
+        "nav.team": "Dekanatsteam",
+        "nav.program": "Wahlprogramm",
+        "nav.documents": "Dokumente",
+        "nav.news": "News",
+  
+        "hero.title": "Unser Team für das Dekanat",
+        "hero.text": "Wir bewerben uns um das Dekanat der Medizinischen Fakultät der Universität Tübingen mit einem klaren Fokus auf Forschung, Lehre, Strukturentwicklung und Digitalisierung.",
+  
+        "team.title": "Dekanatsteam",
+        "program.title": "Wahlprogramm",
+        "documents.title": "Dokumente",
+        "news.title": "News"
+      },
+  
+      en: {
+        "nav.team": "Dean’s Team",
+        "nav.program": "Election Program",
+        "nav.documents": "Documents",
+        "nav.news": "News",
+  
+        "hero.title": "Our Team for the Dean’s Office",
+        "hero.text": "We are applying for the Dean’s Office of the Medical Faculty of the University of Tübingen with a clear focus on research, teaching, structural development, and digitalization.",
+  
+        "team.title": "Dean’s Team",
+        "program.title": "Election Program",
+        "documents.title": "Documents",
+        "news.title": "News"
+      }
+    };
+  
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      localStorage.setItem("lang", lang);
+  
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+  
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.id === "lang-" + lang);
+      });
+    }
+  
+    document.getElementById("lang-de").onclick = () => setLanguage("de");
+    document.getElementById("lang-en").onclick = () => setLanguage("en");
+  
+    // Initial language
+    const savedLang = localStorage.getItem("lang") || "de";
+    setLanguage(savedLang);
+  </script>
 </body>
 </html>
