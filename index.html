@@ -340,11 +340,39 @@
 
 <section id="dokumente">
   <div class="container documents">
-  <h2 data-i18n="documents.title">Dokumente</h2>
+    <h2 data-i18n="documents.title">Dokumente</h2>
     <ul>
-      <li><a href="#">Wahlprogramm (PDF)</a></li>
-      <li><a href="docs/CV_all.pdf" target=_blank>Lebensläufe des Teams (PDF)</a></li>
-      <li><a href="docs/motivationsschreiben.pdf" target=_blank>Motivationsschreiben zur Bewerbung (PDF)</a></li>
+      <li>
+        <a
+          data-i18n="documents.program.label"
+          data-i18n-href="documents.program.href"
+          href="docs/wahlprogramm_de.pdf"
+        >
+          Wahlprogramm (PDF)
+        </a>
+      </li>
+
+      <li>
+        <a
+          data-i18n="documents.cvs.label"
+          data-i18n-href="documents.cvs.href"
+          href="docs/CV_all_de.pdf"
+          target="_blank"
+        >
+          Lebensläufe des Teams (PDF)
+        </a>
+      </li>
+
+      <li>
+        <a
+          data-i18n="documents.motivation.label"
+          data-i18n-href="documents.motivation.href"
+          href="docs/motivationsschreiben_de.pdf"
+          target="_blank"
+        >
+          Motivationsschreiben zur Bewerbung (PDF)
+        </a>
+      </li>
     </ul>
   </div>
 </section>
@@ -400,7 +428,16 @@
         "person.mihaljevic.desc": "Professor und Ärztlicher Direktor Allgemeine, Viszeral- und Transplantationschirurgie",
         
         "person.eickhoff.role": "Prodekan Digitalisierung und KI",
-        "person.eickhoff.desc": "Professor und wissenschaftlicher Direktor meDIC"
+        "person.eickhoff.desc": "Professor und wissenschaftlicher Direktor meDIC",
+
+        "documents.program.label": "Wahlprogramm (PDF)",
+        "documents.program.href": "#",
+        
+        "documents.cvs.label": "Lebensläufe des Teams (PDF)",
+        "documents.cvs.href": "docs/CV_all.pdf",
+        
+        "documents.motivation.label": "Motivationsschreiben zur Bewerbung (PDF)",
+        "documents.motivation.href": "docs/motivationsschreiben.pdf"
       },
   
       en: {
@@ -430,7 +467,16 @@
         "person.mihaljevic.desc": "Professor and Medical Director of General, Visceral and Transplant Surgery",
         
         "person.eickhoff.role": "Vice Dean for Digitalization and AI",
-        "person.eickhoff.desc": "Professor and Scientific Director, meDIC"
+        "person.eickhoff.desc": "Professor and Scientific Director, meDIC",
+
+        "documents.program.label": "Election Program (PDF)",
+        "documents.program.href": "docs/election_program.pdf",
+        
+        "documents.cvs.label": "CVs of the Team (PDF)",
+        "documents.cvs.href": "docs/CV_all.pdf",
+        
+        "documents.motivation.label": "Letter of Motivation (PDF)",
+        "documents.motivation.href": "docs/candidacy.pdf"
 
       }
     };
@@ -439,6 +485,7 @@
       document.documentElement.lang = lang;
       localStorage.setItem("lang", lang);
   
+      // Text translations
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
         if (translations[lang][key]) {
@@ -446,6 +493,15 @@
         }
       });
   
+      // Href translations
+      document.querySelectorAll("[data-i18n-href]").forEach(el => {
+        const key = el.getAttribute("data-i18n-href");
+        if (translations[lang][key]) {
+          el.setAttribute("href", translations[lang][key]);
+        }
+      });
+  
+      // Active language button
       document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.classList.toggle("active", btn.id === "lang-" + lang);
       });
