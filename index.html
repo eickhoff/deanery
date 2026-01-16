@@ -165,6 +165,17 @@
       font-size: 0.9rem;
     }
 
+    .team-card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    
+    .team-card-link:focus-visible .team-card {
+      outline: 3px solid var(--primary);
+      outline-offset: 4px;
+    }
+
     @media (max-width: 600px) {
       .hero h1 {
         font-size: 2rem;
