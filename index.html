@@ -211,37 +211,40 @@
     }
 
     .team-photo {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-  background: #f3f4f6;
-}
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      background: #f3f4f6;
+    }
+    .team-photo {
+      flex: 0 0 auto;
+    }
 
-.team-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.lang-btn {
-  background: none;
-  border: 1px solid #e5e7eb;
-  padding: 0.25rem 0.5rem;
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.lang-btn.active {
-  background: var(--primary);
-  color: white;
-  border-color: var(--primary);
-}
-
-.team-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
+    .team-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .lang-btn {
+      background: none;
+      border: 1px solid #e5e7eb;
+      padding: 0.25rem 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    
+    .lang-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    .team-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
   </style>
 </head>
 
