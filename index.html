@@ -210,14 +210,20 @@
       }
     }
 
-    .team-photo {
+    .team-photo-wrapper {
       width: 100%;
       aspect-ratio: 1 / 1;
-      object-fit: cover;
+      overflow: hidden;
       border-radius: 6px;
-      margin-bottom: 1rem;
       background: #f3f4f6;
-      flex: 0 0 auto; /* CRITICAL FIX */
+      margin-bottom: 1rem;
+    }
+    
+    .team-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .team-card {
@@ -279,11 +285,13 @@
 
     <div class="team-grid">
       <a href="docs/CV_Tabatabai.pdf" download class="team-card-link"><div class="team-card">
-  <img
+  <div class="team-photo-wrapper"><img
     src="images/team/tabatabai.jpg"
     alt="Porträt von Ghazaleh Tabatabai"
     class="team-photo"
-  />
+  /></div>
+
+</div>
 
   <h3>Ghazaleh Tabatabai</h3>
 <span data-i18n="person.tabatabai.role">Dekanin</span>
@@ -293,11 +301,11 @@
 </div></a>
 
       <a href="docs/CV_Malek.pdf" download class="team-card-link"><div class="team-card">
-  <img
+  <div class="team-photo-wrapper"><img
     src="images/team/malek.jpg"
     alt="Porträt von Nisar Malek"
     class="team-photo"
-  />
+  /></div>
 
   <h3>Nisar Malek</h3>
 <span data-i18n="person.malek.role">Prodekan Struktur und Entwicklung</span>
@@ -308,11 +316,11 @@
 
 
 <a href="docs/CV_Heikenwaelder.pdf" download class="team-card-link"><div class="team-card">
-  <img
+  <div class="team-photo-wrapper"><img
     src="images/team/heikenwaelder.jpg"
     alt="Porträt von Mathias Heikenwälder"
     class="team-photo"
-  />
+  /></div>
 
   <h3>Mathias Heikenwälder</h3>
 <span data-i18n="person.heikenwaelder.role">Prodekan Forschung</span>
@@ -322,11 +330,11 @@
 </div></a>
 
 <a href="docs/CV_Mihaljevic.pdf" download class="team-card-link"><div class="team-card">
-  <img
+  <div class="team-photo-wrapper"><img
     src="images/team/mihaljevic.jpg"
     alt="Porträt von André Mihaljevic"
     class="team-photo"
-  />
+  /></div>
 
   <h3>André Mihaljevic</h3>
 <span data-i18n="person.mihaljevic.role">Prodekan Lehre</span>
@@ -336,11 +344,11 @@
 </div></a>
 
 <a href="docs/CV_Eickhoff.pdf" download class="team-card-link"><div class="team-card">
-  <img
+  <div class="team-photo-wrapper"><img
     src="images/team/eickhoff.jpg"
     alt="Porträt von Carsten Eickhoff"
     class="team-photo"
-  />
+  /></div>
 
   <h3>Carsten Eickhoff</h3>
 <span data-i18n="person.eickhoff.role">Prodekan Digitalisierung und KI</span>
